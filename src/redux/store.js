@@ -1,10 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import  contactsReducer  from './contactsSlice';
+import { combineReducers, createStore } from '@reduxjs/toolkit';
 
+import { contactsReducer } from './reducer';
 
-export const store = configureStore({
-  reducer: {
-    contacts: contactsReducer,
-  },
-
+const rootReducer = combineReducers({
+  contacts: contactsReducer ,
 });
+
+export const store = createStore(
+	rootReducer,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+

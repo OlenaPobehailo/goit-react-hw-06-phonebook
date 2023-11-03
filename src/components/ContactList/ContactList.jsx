@@ -1,16 +1,11 @@
-import { useSelector } from 'react-redux';
-
 import { DeleteButton, ListItem } from './ContactList.styled';
-
+import contacts from 'assets/data.json'
 const ContactList = () => {
-  const  items  = useSelector(state => state.contacts.items);
-
-  console.log(items);
 
   return (
     
     <ul>
-      {items.map(contact => (
+      {contacts.map(contact => (
         <ListItem key={contact.id}>
           {contact.name + ': ' + contact.number}
           <DeleteButton
