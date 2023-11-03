@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
-import { nanoid } from 'nanoid';
+// import { useEffect, useState } from 'react';
+// import { nanoid } from 'nanoid';
 
 import ContactForm from './ContactForm';
 import Filter from './Filter';
 import ContactList from './ContactList';
 
-import data from 'assets/data.json';
+// import data from 'assets/data.json';
 
 import { AppContainer } from './App.styled';
 
 export const App = () => {
+  /*
   const [contacts, setContacts] = useState(
     () => JSON.parse(window.localStorage.getItem('contacts')) ?? data
   );
@@ -47,14 +48,14 @@ export const App = () => {
     contact =>
       contact.name && contact.name.toLowerCase().includes(normalizedFilter)
   );
-
+*/
   return (
     <AppContainer>
       <h1>Phonebook</h1>
-      <ContactForm onAddContact={addContact} />
+      <ContactForm />
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={changeFilter} />
-      <ContactList contacts={visibleContacts} onDeleteContact={deleteContact} />
+      <Filter />
+      <ContactList />
     </AppContainer>
   );
 };
