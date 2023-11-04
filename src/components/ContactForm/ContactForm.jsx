@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { addContact } from 'redux/contactsSlice';
 import { selectContacts } from 'redux/selectors';
 import { Input, Button } from './ContactForm.styled';
+import { toast } from 'react-toastify';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -34,8 +35,9 @@ const ContactForm = () => {
     const isNameExist = contacts.some(contact => contact.name === name);
 
     if (isNameExist) {
+      toast.error(`${name} is already in contacts`);
       reset();
-      return alert(`${name} is already in contacts`);
+      return;
     } else {
       const newContact = {
         name,
