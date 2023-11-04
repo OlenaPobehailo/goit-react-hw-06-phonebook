@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/contactsSlice';
 import { selectContacts } from 'redux/selectors';
 import { Input, Button } from './ContactForm.styled';
 
@@ -42,6 +42,7 @@ const ContactForm = () => {
         number,
         id: nanoid(),
       };
+
       dispatch(addContact(newContact));
       reset();
     }
